@@ -3,7 +3,7 @@ package com.ramesh.cricket.data.repository
 import com.ramesh.cricket.data.localprefs.UserPreferences
 import com.ramesh.cricket.data.remote.NetworkService
 import com.ramesh.cricket.data.remote.request.DataRequest
-import com.ramesh.cricket.data.remote.response.DataResponse
+import com.ramesh.cricket.data.remote.response.CurrentMatchesResponse
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -26,11 +26,11 @@ class UserRepository @Inject constructor(
     }
 
 
-    suspend fun getData(
-        Authorization: String, str: String
-    ): Response<DataResponse> {
-        return networkService.getData(
-            Authorization, DataRequest(str)
+    suspend fun getCurrentMatches(
+        token: String, offset: Int
+    ): Response<CurrentMatchesResponse> {
+        return networkService.getCurrentMatches(
+            token, offset
         )
     }
 

@@ -1,8 +1,6 @@
 package com.ramesh.cricket.data.remote
 
-import com.ramesh.cricket.data.remote.Endpoints
-import com.ramesh.cricket.data.remote.request.DataRequest
-import com.ramesh.cricket.data.remote.response.DataResponse
+import com.ramesh.cricket.data.remote.response.CurrentMatchesResponse
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -13,9 +11,9 @@ import retrofit2.http.*
  * */
 interface NetworkService {
 
-    @POST(Endpoints.CricScore)
-    suspend fun getData(
-        @Header("Authorization") token: String, @Body request: DataRequest
-    ): Response<DataResponse>
+    @POST(Endpoints.CurrentMatches)
+    suspend fun getCurrentMatches(
+        @Query("apikey") token: String, @Query("Offset") offset: Int
+    ): Response<CurrentMatchesResponse>
 
 }

@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.activity.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -67,6 +68,7 @@ dependencies {
     // Lifecycle & ViewModel
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.runtime)
+    implementation(libs.lifecycle.extensions)
 
     // Hilt
     implementation(libs.hilt.android)
@@ -88,6 +90,12 @@ dependencies {
 
     // Coil - Image loading
     implementation(libs.coil.compose)
+
+    //Glide
+    implementation(libs.androidx.glide)
+
+    //Recyclerview
+    implementation(libs.androidx.recyclerview)
 
     // dimens
     implementation(libs.sdp)
