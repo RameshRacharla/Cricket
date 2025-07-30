@@ -3,51 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_90sdp"
-    android:layout_margin="@dimen/_5sdp"
-    android:background="@color/white">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.details.ScoreCardDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
-        <!-- Match Name -->
-        <TextView
-            android:id="@+id/text_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hungary vs Austria, 5th Match"
-            android:textColor="@color/textColor"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
-
-        <!-- Match Type and Status -->
-        <TextView
-            android:id="@+id/text_type_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="T20 | Match not started"
-            android:textColor="@color/textColor"
-            android:textSize="@dimen/_9sdp"
-            tools:ignore="HardcodedText" />
-
-        <!-- Venue and Date -->
-        <TextView
-            android:id="@+id/text_venue_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GB Oval, Szodliget | 2025-07-26"
-            android:textColor="@color/textColor"
-            android:textSize="@dimen/_8sdp"
-            tools:ignore="HardcodedText" />
 
         <!-- Team Info -->
         <LinearLayout
@@ -119,6 +86,51 @@
                     android:textSize="@dimen/_8sdp" />
             </LinearLayout>
         </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Match Name -->
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hungary vs Austria, 5th Match"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
+
+    <TextView
+        android:id="@+id/text_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="No Data"
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

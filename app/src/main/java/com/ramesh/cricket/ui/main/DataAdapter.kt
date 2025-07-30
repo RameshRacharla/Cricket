@@ -4,12 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ramesh.cricket.data.remote.response.DataList
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ramesh.cricket.R
 import com.ramesh.cricket.data.remote.response.DataList
 import com.ramesh.cricket.databinding.AdapterDataBinding
+import com.ramesh.cricket.ui.details.ScoreCardDetailsActivity
 
 class DataAdapter(
     val context: Context, var dataList: ArrayList<DataList?>
@@ -28,10 +27,28 @@ class DataAdapter(
     ) {
         try {
             holder.binding.textName.text = dataList[position]?.name
-            Glide.with(context).load(dataList[position]?.profile_image).placeholder(
-                R.mipmap.ic_launcher
-            ).into(holder.binding.imageLogo)
+            holder.binding.textTypeStatus.text =
+                dataList[position]?.matchType.plus(" | ").plus(dataList[position]?.status)
+            holder.binding.textVenueDate.text =
+                dataList[position]?.venue.plus(" | ").plus(dataList[position]?.date)
 
+            Glide.with(context).load(dataList[position]?.teamInfo?.get(0)?.img).placeholder(
+                R.mipmap.ic_launcher
+            ).into(holder.binding.imgTeam1)
+            holder.binding.tvTeam1Shortname.text = dataList[position]?.teamInfo?.get(0)?.shortname
+            Glide.with(context).load(dataList[position]?.teamInfo?.get(1)?.img).placeholder(
+                R.mipmap.ic_launcher
+            ).into(holder.binding.imgTeam2)
+            holder.binding.tvTeam2Shortname.text = dataList[position]?.teamInfo?.get(1)?.shortname
+
+            holder.itemView.setOnClickListener {
+                val id = dataList[position]?.id.toString()
+                val intent = ScoreCardDetailsActivity.newIntent(
+                    context,
+                    id
+                )
+                context.startActivity(intent)
+            }
         } catch (e: Exception) {
             e.stackTrace
         }

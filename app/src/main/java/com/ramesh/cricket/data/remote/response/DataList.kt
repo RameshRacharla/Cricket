@@ -19,11 +19,14 @@ data class DataList(
     @field:SerializedName("venue")
     val venue: String? = "",
 
+    @field:SerializedName("date")
+    val date: String? = "",
+
     @field:SerializedName("teamInfo")
-    val teamInfo: TeamInfo? = null,
+    val teamInfo: List<TeamInfo?>? = emptyList(),
 
     @field:SerializedName("score")
-    val score: Score? = null,
+    val score: List<Score?>? = emptyList(),
 
     @field:SerializedName("tossWinner")
     val tossWinner: String? = "",
@@ -32,7 +35,7 @@ data class DataList(
     val tossChoice: String? = "",
 
     @field:SerializedName("scorecard")
-    val scorecard: Scorecard? = null,
+    val scorecard: List<Scorecard?>? = emptyList(),
 )
 
 data class TeamInfo(
@@ -65,10 +68,10 @@ data class Score1(
 
 data class Scorecard(
     @field:SerializedName("batting")
-    val batting: Batting? = null,
+    val batting: List<Batting?>? = emptyList(),
 
     @field:SerializedName("bowling")
-    val bowling: Bowling? = null
+    val bowling: List<Bowling?>? = emptyList()
 )
 
 data class Batting(

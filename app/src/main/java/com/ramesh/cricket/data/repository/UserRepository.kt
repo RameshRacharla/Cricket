@@ -4,6 +4,7 @@ import com.ramesh.cricket.data.localprefs.UserPreferences
 import com.ramesh.cricket.data.remote.NetworkService
 import com.ramesh.cricket.data.remote.request.DataRequest
 import com.ramesh.cricket.data.remote.response.CurrentMatchesResponse
+import com.ramesh.cricket.data.remote.response.ScorecardDetailsResponse
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -34,5 +35,12 @@ class UserRepository @Inject constructor(
         )
     }
 
+    suspend fun getScorecard(
+        token: String, id: String
+    ): Response<ScorecardDetailsResponse> {
+        return networkService.getScorecard(
+            token, id
+        )
+    }
 
 }
