@@ -22,7 +22,7 @@ The Application follows the MVVM design pattern with SDK 35 and updated Gradle f
  * Backend Database/API (Retrofit Network Services) 
    
 ## Repository Branches
- - Master Branch
+ - main Branch
  
 ## Project Author And Developer
 - **Ramesh Racharla** 
